@@ -3,6 +3,7 @@
     <string name="app_name">Todo App</string>
     <string name="create_task_title">Create a New Task</string>
     <string name="edit_task_title">Edit Task</string>
+    <string name="add_task">Add new task</string>
 
     <!-- Form labels Create New Task & Edit Task -->
     <string name="title_label">Title</string>
@@ -19,4 +20,5 @@
     <string name="status_TODO">To Do</string>
     <string name="status_DOING">Doing</string>
     <string name="status_DONE">Done</string>
+
 </resources>
