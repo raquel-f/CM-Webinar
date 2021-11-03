@@ -3,6 +3,7 @@ package com.raquel.todoapp.viewmodel;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TaskViewModel extends ViewModel {
@@ -17,6 +18,10 @@ public class TaskViewModel extends ViewModel {
             todo = new ArrayList<>();
         }
         todo.add(task);
+
+        // remove task from other lists
+        if(doing != null) doing.remove(task);
+        if(done != null) done.remove(task);
     }
 
     // add task to doing list
@@ -26,8 +31,9 @@ public class TaskViewModel extends ViewModel {
         }
         doing.add(task);
 
-        // remove task from to-do list
-        todo.remove(task);
+        // remove task from other lists
+        if(todo != null) todo.remove(task);
+        if(done != null) done.remove(task);
     }
 
     // add task to done list
@@ -38,7 +44,8 @@ public class TaskViewModel extends ViewModel {
         done.add(task);
 
         // remove task from doing list
-        doing.remove(task);
+        if(todo != null) todo.remove(task);
+        if(doing != null) doing.remove(task);
     }
 
     // get all to-do tasks

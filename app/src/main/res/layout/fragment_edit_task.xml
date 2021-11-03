@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollView"
+    android:id="@+id/edit_task_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -18,7 +18,7 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/create_task_title"
+                android:id="@+id/edit_task_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
@@ -34,13 +34,13 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/create_title_label"
+                android:id="@+id/edit_title_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_label" />
 
             <EditText
-                android:id="@+id/create_title_input"
+                android:id="@+id/edit_title_input"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:ems="10"
@@ -58,13 +58,13 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/create_desc_label"
+                android:id="@+id/edit_desc_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/description_label" />
 
             <EditText
-                android:id="@+id/create_desc_input"
+                android:id="@+id/edit_desc_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -88,29 +88,30 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/create_status_label"
+                android:id="@+id/edit_status_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/status_label" />
 
             <RadioGroup
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_status_input">
 
                 <RadioButton
-                    android:id="@+id/create_status_TODO"
+                    android:id="@+id/edit_status_TODO"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/status_TODO" />
 
                 <RadioButton
-                    android:id="@+id/create_status_DOING"
+                    android:id="@+id/edit_status_DOING"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/status_DOING" />
 
                 <RadioButton
-                    android:id="@+id/create_status_DONE"
+                    android:id="@+id/edit_status_DONE"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/status_DONE" />
@@ -124,7 +125,7 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/create_date_label"
+                android:id="@+id/edit_date_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/end_date_label" />
@@ -138,7 +139,7 @@
             android:gravity="center">
 
             <CalendarView
-                android:id="@+id/create_date_input"
+                android:id="@+id/edit_date_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="2" />
@@ -152,7 +153,7 @@
             android:gravity="center">
 
             <Button
-                android:id="@+id/create_cancel_button"
+                android:id="@+id/edit_cancel_button"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -161,7 +162,7 @@
                 android:text="@string/button_cancel" />
 
             <Button
-                android:id="@+id/create_create_button"
+                android:id="@+id/edit_edit_button"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
