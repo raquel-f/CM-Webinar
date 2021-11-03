@@ -3,23 +3,22 @@
     <string name="app_name">Todo App</string>
     <string name="create_task_title">Create a New Task</string>
     <string name="edit_task_title">Edit Task</string>
+    <string name="add_task">Add new task</string>
 
-    <!-- Form labels Create New Task-->
-    <string name="create_title_label">Title</string>
-    <string name="create_description_label">Description</string>
-    <string name="create_status_label">Status</string>
-    <string name="create_end_date_label">End Date</string>
-    <string name="create_button_cancel">Cancel</string>
-    <string name="create_button_create">Create</string>
+    <!-- Form labels Create New Task & Edit Task -->
+    <string name="title_label">Title</string>
+    <string name="description_label">Description</string>
+    <string name="status_label">Status</string>
+    <string name="end_date_label">End Date</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_create">Create</string>
+    <string name="button_edit">Edit</string>
 
-    <!-- Form input Create New Task -->
+    <!-- Form inputs Create New Task & Edit Task -->
     <string name="create_title">My new task</string>
     <string name="create_description">A brand new task I just created</string>
-    <string name="create_status_TODO">To Do</string>
-    <string name="create_status_DOING">Doing</string>
-    <string name="create_status_DONE">Done</string>
-    <string name="create_end_date">End Date</string>
-
-    <string name="add_task">Add new task</string>
+    <string name="status_TODO">To Do</string>
+    <string name="status_DOING">Doing</string>
+    <string name="status_DONE">Done</string>
 
 </resources>
