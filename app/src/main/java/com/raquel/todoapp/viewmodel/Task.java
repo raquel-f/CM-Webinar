@@ -2,9 +2,10 @@ package com.raquel.todoapp.viewmodel;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Task {
+public class Task implements Serializable {
 
     private String title;           // task title
     private String description;     // task description

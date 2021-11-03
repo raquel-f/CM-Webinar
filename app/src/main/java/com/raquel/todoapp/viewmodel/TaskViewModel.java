@@ -7,11 +7,11 @@ import java.util.List;
 
 public class TaskViewModel extends ViewModel {
 
-    private List<Task> todo;    // Tasks in TODO
+    private List<Task> todo;    // Tasks in TO-DO
     private List<Task> doing;   // Tasks in DOING
     private List<Task> done;    // Tasks in DONE
 
-    // add task to todo list
+    // add task to to-do list
     public void addTaskTodo(Task task){
         if (todo == null) {
             todo = new ArrayList<>();
@@ -26,7 +26,7 @@ public class TaskViewModel extends ViewModel {
         }
         doing.add(task);
 
-        // remove task from todo list
+        // remove task from to-do list
         todo.remove(task);
     }
 
@@ -41,7 +41,7 @@ public class TaskViewModel extends ViewModel {
         doing.remove(task);
     }
 
-    // get all todo tasks
+    // get all to-do tasks
     public List<Task> getTodoTasks(){
         return todo;
     }
