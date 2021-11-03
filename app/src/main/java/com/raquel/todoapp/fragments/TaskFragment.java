@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.raquel.todoapp.FragmentSwitcher;
 import com.raquel.todoapp.MainActivity;
 import com.raquel.todoapp.R;
@@ -78,15 +79,16 @@ public class TaskFragment extends Fragment {
             recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
         }
 
-        for(int i=0; i<30;i++){
-            viewModel.addTaskTodo(new Task("task "+i, "description "+i, new Date()));
-        }
-
         // TODO change list of tasks as needed
         recyclerView.setAdapter(new MyTaskRecyclerViewAdapter(viewModel.getTodoTasks()));
 
-        //TODO add button listener
-
+        FloatingActionButton button = view.findViewById(R.id.addTaskButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentSwitcher.switchCreateTask();
+            }
+        });
 
 
 
