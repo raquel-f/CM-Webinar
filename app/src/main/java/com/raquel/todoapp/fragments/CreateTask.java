@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
+import com.raquel.todoapp.FragmentSwitcher;
+import com.raquel.todoapp.MainActivity;
 import com.raquel.todoapp.R;
 import com.raquel.todoapp.viewmodel.Task;
 import com.raquel.todoapp.viewmodel.TaskViewModel;
@@ -23,14 +25,17 @@ import java.util.Locale;
 
 public class CreateTask extends Fragment {
 
+    // TODO test
+
     private TaskViewModel viewModel;
+    private FragmentSwitcher fragmentSwitcher;
 
     public CreateTask() {
         // Required empty public constructor
     }
 
 
-    public static CreateTask newInstance(String param1, String param2) {
+    public static CreateTask newInstance() {
         return new CreateTask();
     }
 
@@ -42,7 +47,9 @@ public class CreateTask extends Fragment {
         viewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
 
         // initialize the interface
-        // TODO implement
+        if (getActivity() instanceof MainActivity) {
+            fragmentSwitcher = (FragmentSwitcher) getActivity();
+        }
 
     }
 
@@ -64,7 +71,7 @@ public class CreateTask extends Fragment {
         // set the button's listeners
         cancelB.setOnClickListener(view -> {
             // switch to list fragment
-            // TODO implement
+            fragmentSwitcher.switchTaskList();
         });
 
         createB.setOnClickListener(view -> {
@@ -80,7 +87,7 @@ public class CreateTask extends Fragment {
             viewModel.addTaskTodo(newTask);
 
             // switch to list fragment
-            // TODO implement
+            fragmentSwitcher.switchTaskList();
         });
 
         return v;
