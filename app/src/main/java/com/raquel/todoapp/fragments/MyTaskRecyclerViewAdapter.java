@@ -1,6 +1,9 @@
-package com.raquel.todoapp;
+package com.raquel.todoapp.fragments;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.icu.text.SimpleDateFormat;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -9,6 +12,7 @@ import com.raquel.todoapp.databinding.FragmentTaskBinding;
 import com.raquel.todoapp.viewmodel.Task;
 
 import java.util.List;
+import java.util.Date;
 
 /**
  *
