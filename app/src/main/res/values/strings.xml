@@ -20,4 +20,6 @@
     <string name="create_status_DONE">Done</string>
     <string name="create_end_date">End Date</string>
 
+    <string name="add_task">Add new task</string>
+
 </resources>
