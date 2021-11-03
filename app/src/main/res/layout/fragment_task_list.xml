@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".TaskFragment"
+    tools:context=".fragments.TaskFragment"
     tools:listitem="@layout/fragment_task">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -18,7 +18,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context=".TaskFragment"
+        tools:context=".fragments.TaskFragment"
         tools:listitem="@layout/fragment_task"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
