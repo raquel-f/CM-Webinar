@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.raquel.todoapp.FragmentSwitcher;
+import com.raquel.todoapp.MainActivity;
 import com.raquel.todoapp.R;
 import com.raquel.todoapp.viewmodel.Task;
 import com.raquel.todoapp.viewmodel.TaskViewModel;
@@ -26,9 +28,10 @@ public class TaskFragment extends Fragment {
 
     private TaskViewModel viewModel;
 
+    private FragmentSwitcher fragmentSwitcher;
+
     private static final String ARG_COLUMN_COUNT = "column-count";
 
-    // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
     public static TaskFragment newInstance(int columnCount) {
         TaskFragment fragment = new TaskFragment();
@@ -52,6 +55,11 @@ public class TaskFragment extends Fragment {
         // initialize the view model variable
         viewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
 
+        // initialize the interface
+        if (getActivity() instanceof MainActivity) {
+            fragmentSwitcher = (FragmentSwitcher) getActivity();
+        }
+
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -69,11 +77,18 @@ public class TaskFragment extends Fragment {
         } else {
             recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
         }
-        // TODO GET CORRECT LIST HERE
 
-        viewModel.addTaskTodo(new Task("titulo","descricao", new Date()));
+        for(int i=0; i<30;i++){
+            viewModel.addTaskTodo(new Task("task "+i, "description "+i, new Date()));
+        }
 
+        // TODO change list of tasks as needed
         recyclerView.setAdapter(new MyTaskRecyclerViewAdapter(viewModel.getTodoTasks()));
+
+        //TODO add button listener
+
+
+
 
         return view;
     }
