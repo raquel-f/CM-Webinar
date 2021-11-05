@@ -133,26 +133,31 @@ public class EditTask extends Fragment {
 
             Date newDate = new Date(calendarView.getDate());
 
-            // update the task
+            // update task main information
+            task.setTitle(newTitle);
+            task.setDescription(newDesc);
+            task.setEndDate(newDate);
+
+
+            // update the task status and list
             switch (selectedRadio.getText().toString()){
                 case "To Do":
-                    task.setTitle(newTitle);
-                    task.setDescription(newDesc);
-                    task.setStatus(Status.TODO);
-                    task.setEndDate(newDate);
-                    viewModel.addTaskTodo(task);
+                    if(status != Status.TODO) {
+                        task.setStatus(Status.TODO);
+                        viewModel.addTaskTodo(task);
+                    }
                     break;
                 case "Doing":
-                    task.setTitle(newTitle);
-                    task.setDescription(newDesc);
-                    task.setStatus(Status.DOING);
-                    viewModel.addTaskDoing(task);
+                    if(status != Status.DOING) {
+                        task.setStatus(Status.DOING);
+                        viewModel.addTaskDoing(task);
+                    }
                     break;
                 case "Done":
-                    task.setTitle(newTitle);
-                    task.setDescription(newDesc);
-                    task.setStatus(Status.DONE);
-                    viewModel.addTaskDone(task);
+                    if(status != Status.DONE) {
+                        task.setStatus(Status.DONE);
+                        viewModel.addTaskDone(task);
+                    }
                     break;
                 default:
                     break;
