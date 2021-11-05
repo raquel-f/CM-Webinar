@@ -53,11 +53,11 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
             }
         });
 
-        // TODO set hold listener
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 fragmentSwitcher.switchEditTask(holder.mItem);
+                //TODO understand what this does
                 return false;
             }
         });
