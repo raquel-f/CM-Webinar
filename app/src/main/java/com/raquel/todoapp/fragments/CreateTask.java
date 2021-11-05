@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.raquel.todoapp.viewmodel.Task;
 import com.raquel.todoapp.viewmodel.TaskViewModel;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -67,6 +69,14 @@ public class CreateTask extends Fragment {
         // get the buttons
         Button cancelB = v.findViewById(R.id.create_cancel_button);
         Button createB = v.findViewById(R.id.create_create_button);
+
+        // set calendar change listener
+        date.setOnDateChangeListener((view, year, month, day) -> {
+            Calendar c = Calendar.getInstance();
+            c.set(year, month, day);
+            long endTime = c.getTimeInMillis();
+            date.setDate(endTime);
+        });
 
         // set the button's listeners
         cancelB.setOnClickListener(view -> {

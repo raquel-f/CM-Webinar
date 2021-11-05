@@ -21,6 +21,7 @@ import com.raquel.todoapp.viewmodel.Status;
 import com.raquel.todoapp.viewmodel.Task;
 import com.raquel.todoapp.viewmodel.TaskViewModel;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -85,6 +86,14 @@ public class EditTask extends Fragment {
         CalendarView calendarView = v.findViewById(R.id.edit_date_input);
         Button cancelB = v.findViewById(R.id.edit_cancel_button);
         Button editB = v.findViewById(R.id.edit_edit_button);
+
+        // set calendar change listener
+        calendarView.setOnDateChangeListener((view, year, month, day) -> {
+            Calendar c = Calendar.getInstance();
+            c.set(year, month, day);
+            long endTime = c.getTimeInMillis();
+            calendarView.setDate(endTime);
+        });
 
         // apply the task information in the input widgets
         titleView.setText(title);
