@@ -1,6 +1,9 @@
-package com.raquel.todoapp;
+package com.raquel.todoapp.fragments;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.icu.text.SimpleDateFormat;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -9,6 +12,8 @@ import com.raquel.todoapp.databinding.FragmentTaskBinding;
 import com.raquel.todoapp.viewmodel.Task;
 
 import java.util.List;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -17,9 +22,10 @@ import java.util.List;
 public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecyclerViewAdapter.ViewHolder> {
 
     private final List<Task> mValues;
+    public static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
 
-    public MyTaskRecyclerViewAdapter(List<Task> items) {
-        mValues = items;
+    public MyTaskRecyclerViewAdapter(List<Task> tasks) {
+        mValues = tasks;
     }
 
     @Override
@@ -33,11 +39,14 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mTitleView.setText(mValues.get(position).getTitle());
-        holder.mDateView.setText(mValues.get(position).getEndDate().toString());
+        holder.mDateView.setText(dateFormat.format(mValues.get(position).getEndDate()));
     }
 
     @Override
     public int getItemCount() {
+        if(mValues == null){
+            return 0;
+        }
         return mValues.size();
     }
 

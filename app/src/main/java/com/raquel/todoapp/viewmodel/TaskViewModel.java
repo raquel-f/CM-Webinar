@@ -43,7 +43,7 @@ public class TaskViewModel extends ViewModel {
         }
         done.add(task);
 
-        // remove task from doing list
+        // remove task from other lists
         if(todo != null) todo.remove(task);
         if(doing != null) doing.remove(task);
     }

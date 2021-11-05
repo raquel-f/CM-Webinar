@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements FragmentSwitcher 
         CreateTask fragment = CreateTask.newInstance();
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
-                .replace(R.id.create_task_layout, fragment, null)
+                .replace(R.id.mainFrame_layout, fragment, null)
                 .commit();
     }
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements FragmentSwitcher 
         EditTask fragment = EditTask.newInstance(task);
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
-                .replace(R.id.edit_task_layout, fragment, null)
+                .replace(R.id.mainFrame_layout, fragment, null)
                 .commit();
     }
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements FragmentSwitcher 
         TaskFragment fragment = TaskFragment.newInstance(1);
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
-                .replace(R.id.listFragment_layout, fragment, null)
+                .replace(R.id.mainFrame_layout, fragment, null)
                 .commit();
     }
 }
