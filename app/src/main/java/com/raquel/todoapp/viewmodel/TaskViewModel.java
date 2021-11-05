@@ -3,7 +3,6 @@ package com.raquel.todoapp.viewmodel;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class TaskViewModel extends ViewModel {
