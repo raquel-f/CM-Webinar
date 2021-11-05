@@ -21,6 +21,7 @@ import com.raquel.todoapp.viewmodel.Status;
 import com.raquel.todoapp.viewmodel.Task;
 import com.raquel.todoapp.viewmodel.TaskViewModel;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -86,6 +87,14 @@ public class EditTask extends Fragment {
         Button cancelB = v.findViewById(R.id.edit_cancel_button);
         Button editB = v.findViewById(R.id.edit_edit_button);
 
+        // set calendar change listener
+        calendarView.setOnDateChangeListener((view, year, month, day) -> {
+            Calendar c = Calendar.getInstance();
+            c.set(year, month, day);
+            long endTime = c.getTimeInMillis();
+            calendarView.setDate(endTime);
+        });
+
         // apply the task information in the input widgets
         titleView.setText(title);
         descView.setText(desc);
@@ -124,26 +133,31 @@ public class EditTask extends Fragment {
 
             Date newDate = new Date(calendarView.getDate());
 
-            // update the task
+            // update task main information
+            task.setTitle(newTitle);
+            task.setDescription(newDesc);
+            task.setEndDate(newDate);
+
+
+            // update the task status and list
             switch (selectedRadio.getText().toString()){
                 case "To Do":
-                    task.setTitle(newTitle);
-                    task.setDescription(newDesc);
-                    task.setStatus(Status.TODO);
-                    task.setEndDate(newDate);
-                    viewModel.addTaskTodo(task);
+                    if(status != Status.TODO) {
+                        task.setStatus(Status.TODO);
+                        viewModel.addTaskTodo(task);
+                    }
                     break;
                 case "Doing":
-                    task.setTitle(newTitle);
-                    task.setDescription(newDesc);
-                    task.setStatus(Status.DOING);
-                    viewModel.addTaskDoing(task);
+                    if(status != Status.DOING) {
+                        task.setStatus(Status.DOING);
+                        viewModel.addTaskDoing(task);
+                    }
                     break;
                 case "Done":
-                    task.setTitle(newTitle);
-                    task.setDescription(newDesc);
-                    task.setStatus(Status.DONE);
-                    viewModel.addTaskDone(task);
+                    if(status != Status.DONE) {
+                        task.setStatus(Status.DONE);
+                        viewModel.addTaskDone(task);
+                    }
                     break;
                 default:
                     break;
