@@ -65,8 +65,8 @@ public class TaskViewModel extends ViewModel {
     // remove task
     public void removeTask(Task task){
         // remove task from any list it might be in
-        todo.remove(task);
-        doing.remove(task);
-        done.remove(task);
+        if(todo != null) todo.remove(task);
+        if(doing != null) doing.remove(task);
+        if(done != null) done.remove(task);
     }
 }
