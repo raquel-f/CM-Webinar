@@ -71,7 +71,7 @@ public class TaskFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
         // TODO change list of tasks as needed
-        recyclerView.setAdapter(new MyTaskRecyclerViewAdapter(viewModel.getTodoTasks(), fragmentSwitcher));
+        recyclerView.setAdapter(new MyTaskRecyclerViewAdapter(viewModel.getTodoTasks(), fragmentSwitcher, viewModel));
 
         // set button onClick event listener
         FloatingActionButton button = view.findViewById(R.id.addTaskButton);
@@ -81,8 +81,6 @@ public class TaskFragment extends Fragment {
                 fragmentSwitcher.switchCreateTask();
             }
         });
-
-
 
         return view;
     }
