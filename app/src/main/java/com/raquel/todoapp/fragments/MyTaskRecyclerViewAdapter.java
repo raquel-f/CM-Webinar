@@ -27,8 +27,8 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
 
     private final List<Task> mValues;
     public static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-    private FragmentSwitcher fragmentSwitcher;
-    private TaskViewModel viewModel;
+    private final FragmentSwitcher fragmentSwitcher;
+    private final TaskViewModel viewModel;
 
     public MyTaskRecyclerViewAdapter(List<Task> tasks, FragmentSwitcher fragmentSwitcher, TaskViewModel viewModel) {
         mValues = tasks;
@@ -50,12 +50,24 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
         // set text seen in the list
         holder.mTitleView.setText(mValues.get(position).getTitle());
         holder.mDateView.setText(dateFormat.format(mValues.get(position).getEndDate()));
+        holder.mDescriptionView.setText(mValues.get(position).getDescription());
+
+        //hide description
+        holder.mDescriptionView.setVisibility(View.GONE);
 
         // add click listener to each list item
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("Task " + holder.getAbsoluteAdapterPosition());
+
+                TextView description = view.findViewById(R.id.task_description);
+
+                if(description.getVisibility() == View.VISIBLE){
+                    description.setVisibility(View.GONE);
+                }else{
+                    description.setVisibility(View.VISIBLE);
+                }
+
             }
         });
 
@@ -117,12 +129,14 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mTitleView;
         public final TextView mDateView;
+        public final TextView mDescriptionView;
         public Task mItem;
 
         public ViewHolder(FragmentTaskBinding binding) {
             super(binding.getRoot());
             mTitleView = binding.taskTitle;
             mDateView = binding.taskDate;
+            mDescriptionView = binding.taskDescription;
         }
 
         @NonNull
