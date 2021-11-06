@@ -2,6 +2,7 @@ package com.raquel.todoapp.fragments;
 
 import android.icu.text.SimpleDateFormat;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
@@ -49,19 +50,37 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
             @Override
             public void onClick(View view) {
                 System.out.println("Task "+holder.getAbsoluteAdapterPosition());
-
-                PopupMenu popup = new PopupMenu(view.getContext(), view);
-                popup.getMenuInflater().inflate(R.menu.popupmenu, popup.getMenu());
-                popup.show();
             }
         });
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                fragmentSwitcher.switchEditTask(holder.mItem);
-                //TODO understand what this does
-                return false;
+
+                PopupMenu popup = new PopupMenu(view.getContext(), view);
+                popup.getMenuInflater().inflate(R.menu.popupmenu, popup.getMenu());
+
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+
+                        switch (menuItem.getItemId()){
+                            case R.id.edit_task_item:
+                                fragmentSwitcher.switchEditTask(holder.mItem);
+                                break;
+                            case R.id.delete_task_item:
+                                System.out.println("idk");
+                                break;
+                            default:
+                                System.out.println("how did this happen?");
+                        }
+                        return true;
+                    }
+                });
+
+                popup.show();
+
+                return true;
             }
         });
 
