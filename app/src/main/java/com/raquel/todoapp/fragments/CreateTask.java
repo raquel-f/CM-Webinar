@@ -1,11 +1,6 @@
 package com.raquel.todoapp.fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +8,17 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.raquel.todoapp.FragmentSwitcher;
 import com.raquel.todoapp.MainActivity;
 import com.raquel.todoapp.R;
 import com.raquel.todoapp.viewmodel.Task;
 import com.raquel.todoapp.viewmodel.TaskViewModel;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 
 public class CreateTask extends Fragment {
