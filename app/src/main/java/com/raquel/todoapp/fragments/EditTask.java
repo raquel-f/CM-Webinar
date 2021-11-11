@@ -23,12 +23,9 @@ import com.raquel.todoapp.viewmodel.TaskViewModel;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 
 public class EditTask extends Fragment {
-
-    // TODO test
 
     private static final String TASK_KEY = "task_key";
     private Task task;
@@ -74,7 +71,8 @@ public class EditTask extends Fragment {
         String desc = task.getDescription();
         Status status = task.getStatus();
         Date date = task.getEndDate();
-        List<Task> modelTasks = null;
+
+        // TODO: Add date picker
 
         // get the input widgets
         TextView titleView = v.findViewById(R.id.edit_title_input);
@@ -83,9 +81,14 @@ public class EditTask extends Fragment {
         RadioButton radioTODO = v.findViewById(R.id.edit_status_TODO);
         RadioButton radioDOING = v.findViewById(R.id.edit_status_DOING);
         RadioButton radioDONE = v.findViewById(R.id.edit_status_DONE);
-        CalendarView calendarView = v.findViewById(R.id.edit_date_input);
+        CalendarView calendarView = v.findViewById(R.id.edit_date_input); // TODO: Change
         Button cancelB = v.findViewById(R.id.edit_cancel_button);
         Button editB = v.findViewById(R.id.edit_edit_button);
+        // TODO: Add date button
+
+        // TODO: Set date button listener
+
+        // TODO: Update date listener
 
         // set calendar change listener
         calendarView.setOnDateChangeListener((view, year, month, day) -> {
@@ -98,23 +101,20 @@ public class EditTask extends Fragment {
         // apply the task information in the input widgets
         titleView.setText(title);
         descView.setText(desc);
-        switch(status){
+        switch (status) {
             case TODO:
                 radioTODO.setChecked(true);
-                modelTasks = viewModel.getTodoTasks();
                 break;
             case DOING:
                 radioDOING.setChecked(true);
-                modelTasks = viewModel.getDoingTasks();
                 break;
             case DONE:
                 radioDONE.setChecked(true);
-                modelTasks = viewModel.getDoneTasks();
                 break;
             default:
                 break;
         }
-        calendarView.setDate(date.getTime());
+        calendarView.setDate(date.getTime()); // TODO: Change
 
         // set the button's listeners
         cancelB.setOnClickListener(view -> {
@@ -122,7 +122,6 @@ public class EditTask extends Fragment {
             fragmentSwitcher.switchTaskList();
         });
 
-        List<Task> finalModelTasks = modelTasks;
         editB.setOnClickListener(view -> {
             // get the new task information
             String newTitle = titleView.getText().toString();
@@ -140,21 +139,21 @@ public class EditTask extends Fragment {
 
 
             // update the task status and list
-            switch (selectedRadio.getText().toString()){
+            switch (selectedRadio.getText().toString()) {
                 case "To Do":
-                    if(status != Status.TODO) {
+                    if (status != Status.TODO) {
                         task.setStatus(Status.TODO);
                         viewModel.addTaskTodo(task);
                     }
                     break;
                 case "Doing":
-                    if(status != Status.DOING) {
+                    if (status != Status.DOING) {
                         task.setStatus(Status.DOING);
                         viewModel.addTaskDoing(task);
                     }
                     break;
                 case "Done":
-                    if(status != Status.DONE) {
+                    if (status != Status.DONE) {
                         task.setStatus(Status.DONE);
                         viewModel.addTaskDone(task);
                     }

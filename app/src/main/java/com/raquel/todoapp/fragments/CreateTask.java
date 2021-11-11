@@ -23,8 +23,6 @@ import java.util.Date;
 
 public class CreateTask extends Fragment {
 
-    // TODO test
-
     private TaskViewModel viewModel;
     private FragmentSwitcher fragmentSwitcher;
 
@@ -71,7 +69,7 @@ public class CreateTask extends Fragment {
         Button createB = v.findViewById(R.id.create_create_button);
         // TODO: Add date button
 
-        // TODO: Set date picker listener
+        // TODO: Set date button listener
 
         // TODO: Update date listener
         // set calendar change listener

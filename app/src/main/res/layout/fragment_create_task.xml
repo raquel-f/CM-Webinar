@@ -40,10 +40,10 @@
             android:id="@+id/create_title_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:importantForAutofill="no"
             android:inputType="text"
             android:maxLines="1"
             android:text="@string/create_title"
-            android:importantForAutofill="no"
             tools:ignore="LabelFor" />
 
 
@@ -62,6 +62,7 @@
             android:id="@+id/create_desc_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:importantForAutofill="no"
             android:inputType="text"
             android:labelFor="@id/create_desc_label"
             android:lines="4"
@@ -69,7 +70,6 @@
             android:minLines="2"
             android:scrollbars="vertical"
             android:text="@string/create_description"
-            android:importantForAutofill="no"
             tools:ignore="LabelFor" />
 
 
