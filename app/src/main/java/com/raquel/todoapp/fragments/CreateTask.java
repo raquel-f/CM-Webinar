@@ -23,8 +23,6 @@ import java.util.Date;
 
 public class CreateTask extends Fragment {
 
-    // TODO test
-
     private TaskViewModel viewModel;
     private FragmentSwitcher fragmentSwitcher;
 
@@ -57,15 +55,23 @@ public class CreateTask extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_create_task, container, false);
 
+        // TODO: Add date picker
+
         // get the input widgets
         TextView title = v.findViewById(R.id.create_title_input);
         TextView desc = v.findViewById(R.id.create_desc_input);
         CalendarView date = v.findViewById(R.id.create_date_input);
 
+        // TODO: Add end date variable
+
         // get the buttons
         Button cancelB = v.findViewById(R.id.create_cancel_button);
         Button createB = v.findViewById(R.id.create_create_button);
+        // TODO: Add date button
 
+        // TODO: Set date button listener
+
+        // TODO: Update date listener
         // set calendar change listener
         date.setOnDateChangeListener((view, year, month, day) -> {
             Calendar c = Calendar.getInstance();
@@ -84,7 +90,7 @@ public class CreateTask extends Fragment {
             // get the input
             String newTitle = title.getText().toString();
             String newDesc = desc.getText().toString();
-            Date newDate = new Date(date.getDate());
+            Date newDate = new Date(date.getDate()); // TODO: Update
 
             // create a new task
             Task newTask = new Task(newTitle, newDesc, newDate);
