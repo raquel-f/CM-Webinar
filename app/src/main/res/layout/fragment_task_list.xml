@@ -21,12 +21,14 @@
         tools:context=".fragments.TaskFragment"
         tools:listitem="@layout/fragment_task"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <!--  TODO change  -->
+    <ImageButton
         android:id="@+id/addTaskButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="56dp"
+        android:layout_height="53dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/teal_200"
         android:clickable="true"
         android:contentDescription="@string/add_task"
         android:src="@android:drawable/ic_menu_add"
