@@ -73,11 +73,10 @@ public class TaskFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        // TODO change list of tasks as needed
         recyclerView.setAdapter(new MyTaskRecyclerViewAdapter(viewModel.getTodoTasks(), fragmentSwitcher, viewModel));
 
         // set button onClick event listener
-        ImageButton button = view.findViewById(R.id.addTaskButton);
+        ImageButton button = view.findViewById(R.id.addTaskButton); // TODO change this
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
