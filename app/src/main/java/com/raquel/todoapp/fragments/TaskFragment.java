@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -74,7 +77,7 @@ public class TaskFragment extends Fragment {
         recyclerView.setAdapter(new MyTaskRecyclerViewAdapter(viewModel.getTodoTasks(), fragmentSwitcher, viewModel));
 
         // set button onClick event listener
-        FloatingActionButton button = view.findViewById(R.id.addTaskButton);
+        ImageButton button = view.findViewById(R.id.addTaskButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
