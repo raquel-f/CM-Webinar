@@ -3,10 +3,14 @@ package com.raquel.todoapp.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,7 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.raquel.todoapp.FragmentSwitcher;
 import com.raquel.todoapp.MainActivity;
 import com.raquel.todoapp.R;
+import com.raquel.todoapp.viewmodel.Task;
 import com.raquel.todoapp.viewmodel.TaskViewModel;
+
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -27,6 +34,7 @@ public class TaskFragment extends Fragment {
     private FragmentSwitcher fragmentSwitcher;
 
     private static final String ARG_COLUMN_COUNT = "column-count";
+    private MyTaskRecyclerViewAdapter adapter;
 
     @SuppressWarnings("unused")
     public static TaskFragment newInstance(int columnCount) {
@@ -51,6 +59,8 @@ public class TaskFragment extends Fragment {
         // initialize the view model variable
         viewModel = new ViewModelProvider(requireActivity()).get(TaskViewModel.class);
 
+        setHasOptionsMenu(true);
+
         // initialize the interface
         if (getActivity() instanceof MainActivity) {
             fragmentSwitcher = (FragmentSwitcher) getActivity();
@@ -70,7 +80,9 @@ public class TaskFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        recyclerView.setAdapter(new MyTaskRecyclerViewAdapter(viewModel.getTodoTasks(), fragmentSwitcher, viewModel));
+        adapter = new MyTaskRecyclerViewAdapter(viewModel.getTodoTasks(), fragmentSwitcher, viewModel);
+
+        recyclerView.setAdapter(adapter);
 
         // set button onClick event listener
         ImageButton button = view.findViewById(R.id.addTaskButton); // TODO change this
@@ -82,5 +94,32 @@ public class TaskFragment extends Fragment {
         });
 
         return view;
+    }
+
+    // Menu stuff
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.list_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        List<Task> newList;
+
+        if (item.getItemId() == R.id.todo) {
+            newList = viewModel.getTodoTasks();
+        } else if (item.getItemId() == R.id.doing) {
+            newList = viewModel.getDoingTasks();
+        } else if (item.getItemId() == R.id.done) {
+            newList = viewModel.getDoneTasks();
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+
+        adapter.setDataSet(newList);
+        adapter.notifyDataSetChanged();
+
+        return true;
     }
 }
