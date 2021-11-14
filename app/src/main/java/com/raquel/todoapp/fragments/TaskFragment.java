@@ -76,6 +76,8 @@ public class TaskFragment extends Fragment {
         // Get context
         Context context = view.getContext();
 
+        //TODO add drawer button
+
         //get recyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -86,22 +88,20 @@ public class TaskFragment extends Fragment {
 
         // set button onClick event listener
         ImageButton button = view.findViewById(R.id.addTaskButton); // TODO change this
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragmentSwitcher.switchCreateTask();
-            }
-        });
+        button.setOnClickListener(view1 -> fragmentSwitcher.switchCreateTask());
 
         return view;
     }
 
-    // Menu stuff
+    // Menu stuff TODO remove this part
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        menu.clear();
         inflater.inflate(R.menu.list_menu, menu);
     }
 
+
+    // TODO change this
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
