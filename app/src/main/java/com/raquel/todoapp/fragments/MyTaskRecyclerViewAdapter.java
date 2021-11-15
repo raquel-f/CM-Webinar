@@ -20,9 +20,6 @@ import com.raquel.todoapp.viewmodel.TaskViewModel;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * TODO: Replace the implementation with code for your data type.
- */
 public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecyclerViewAdapter.ViewHolder> {
 
     private List<Task> mValues;
