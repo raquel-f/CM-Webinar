@@ -12,8 +12,6 @@
   <a href="https://github.com/raquel-f">Raquel Ferreira</a>
   &nbsp;|&nbsp;
   <a href="https://github.com/RFigas">Ricardo Figueiredo</a>
-  &nbsp;|&nbsp;
-  <a href="https://github.com/zeroeroNero">Paulo Fernandes</a>
 </div>
 
 <br />
@@ -131,19 +129,6 @@ Estudante de Mestrado em Engenharia Informática com especialização em Engenha
 </tr>
 </table>
 
-<table>
-<th> Paulo Fernandes</th>
-<tr>
-<td>
-
-Estudante de Mestrado em Desing e Multimédia. 
-<br/>Responsible for:
-- Initial Webinar presentation
-- Advertising
-</td>
-</tr>
-</table>
-
 ---
 
 ## EN
@@ -240,18 +225,6 @@ Master's of Informatics Engineering with a specialization in Software Engineerin
 </tr>
 </table>
 
-<table>
-<th> Paulo Fernandes</th>
-<tr>
-<td>
-
-Master's of Design and Multimedia.
-<br/>Responsible for:
-- Initial Webinar presentation
-- Advertising
-</td>
-</tr>
-</table>
 
 
 
