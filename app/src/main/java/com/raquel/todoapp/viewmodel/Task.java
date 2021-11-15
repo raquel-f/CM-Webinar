@@ -9,7 +9,7 @@ public class Task implements Serializable {
 
     private String title;           // task title
     private String description;     // task description
-    private Status status;          // task status (TODO, DOING or DONE)
+    private Status status;          // task status (TO-DO, DOING or DONE)
     private Date endDate;           // task end date
 
     // task constructor

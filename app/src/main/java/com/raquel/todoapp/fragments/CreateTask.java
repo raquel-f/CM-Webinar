@@ -90,10 +90,10 @@ public class CreateTask extends Fragment {
             // get the input
             String newTitle = title.getText().toString();
             String newDesc = desc.getText().toString();
-            Date newDate = new Date(date.getDate()); // TODO: Update
+            Date newDate = new Date(date.getDate()); // TODO: Delete
 
             // create a new task
-            Task newTask = new Task(newTitle, newDesc, newDate);
+            Task newTask = new Task(newTitle, newDesc, newDate); // TODO: update
 
             // add task to view model
             viewModel.addTaskTodo(newTask);

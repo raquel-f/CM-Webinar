@@ -81,10 +81,12 @@ public class EditTask extends Fragment {
         RadioButton radioTODO = v.findViewById(R.id.edit_status_TODO);
         RadioButton radioDOING = v.findViewById(R.id.edit_status_DOING);
         RadioButton radioDONE = v.findViewById(R.id.edit_status_DONE);
-        CalendarView calendarView = v.findViewById(R.id.edit_date_input); // TODO: Change
+        CalendarView calendarView = v.findViewById(R.id.edit_date_input); // TODO: Delete
         Button cancelB = v.findViewById(R.id.edit_cancel_button);
         Button editB = v.findViewById(R.id.edit_edit_button);
         // TODO: Add date button
+
+        // TODO: add date variable
 
         // TODO: Set date button listener
 
@@ -114,7 +116,7 @@ public class EditTask extends Fragment {
             default:
                 break;
         }
-        calendarView.setDate(date.getTime()); // TODO: Change
+        calendarView.setDate(date.getTime()); // TODO: Delete
 
         // set the button's listeners
         cancelB.setOnClickListener(view -> {
@@ -130,7 +132,7 @@ public class EditTask extends Fragment {
             int selectedRadioID = radioGroup.getCheckedRadioButtonId();
             RadioButton selectedRadio = v.findViewById(selectedRadioID);
 
-            Date newDate = new Date(calendarView.getDate());
+            Date newDate = new Date(calendarView.getDate()); // TODO: Update
 
             // update task main information
             task.setTitle(newTitle);
